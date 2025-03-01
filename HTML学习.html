@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML学习</title>
+</head>
+
+
+
+<body>
+    <h1 id="top">h1一级标题最好只有一个(此时我给h1一级标题起了id为“top”后面我可以通过页面内跳转时调用id回来)</h1>
+    <h2>h2二级标题</h2>
+    <h3>h3三级标题</h3>
+    <h4>......</h4>
+    <p>p是段落,lorem即假文,水贴用的Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos temporibus vero unde. Laborum repudiandae est rem, labore ducimus accusantium at modi impedit ipsam et optio eveniet voluptatibus? Laborum, totam corrupti.</p>
+    <strong>strong:强壮加粗强调</strong>
+    <i>i即italic:斜体</i>
+    <u>u即underline:下划线</u>
+    <b>b即bold:大胆加粗</b>
+    <em>e即emphasize:斜体重要强调</em> 
+    <p>块级标签即自动占满父元素/父标签框内的一行的宽度,如h,p,ul,ol,li</p>
+    <h1>标题块标签<p>标题内的段落块标签</p>标题块标签</h1>
+    <p>行内标签即该占多少占多少,能挤在一行如<strong>strong</strong>,<i>i</i>,<u>u</u>,<a>a</a>,<em>em</em><img alt="img">...</p>
+    <ul>ul即unordered list:无序列表
+        <li>li即list item:列表项,列表项必须嵌套在列表里</li>
+        <li>list item2</li>
+        <li>list item3</li>
+        <li>......</li>
+    </ul>
+    <ol>ol即ordered list:有序列表
+        <li>list item1</li>
+        <li>list item2</li>
+        <li>......</li>
+    </ol>
+    <dl>dl定义一个描述列表description/define list:定义型列表
+        <dt>项目一名字</dt>
+        <dd>项目一描述1</dd>
+        <dd>项目一描述2</dd>
+        <dd>......</dd>
+        <dt>项目二名字</dt>
+        <dd>项目二描述1</dd>
+        <dd>项目二描述2</dd>
+        <dd>.......</dd>
+        <dt>......</dt>
+        <dd>......</dd>
+    </dl>
+    <hr>hr是一个水平分割线
+    <p>br是一个手动回车,这是一个段落,我单纯想回车但是不想嵌套一个段落或者块标签,这时我可以使用<br>br来达成目的</p>
+    <p title="xxx">标签的title属性即对此标签内容的定义/描述,鼠标悬停表示。例如这句话中title="xxx"(title几乎可以给到任何标签)。</p>
+    <p><input type="text" tabindex="1">属性tapindex设置焦点顺序,让元素可在鼠标悬停此时按tab后被聚焦,聚焦顺序按tapindex赋值的数字,按shift+tab即反顺序</p>
+    <p>class属性即标签的分类,一个标签多个分类用空格隔开,如标签内容是“sex”,则class="male female"</p>
+    <p>id属性即标签的唯一id,给标签起的名字/身份证号,每个标签id必须唯一。方便调用</p>
+    <p>属性lang即language,表示人类语言如根标签<html lang="en">中表示整个页面的人类语言是en</p>
+    <p>style属性表示标签的样式</p>
+    <dl>a标签的页面内跳转(跳转的标签id会显示在地址栏尾部)
+        <dt><a href="#top">回到顶部</a></dt>
+        <dd>通过href="#id"调取了顶部元素的id跳转回顶部</dd>
+        <dt><a href="#bottom">回到底部</a></dt>
+        <dd>通过href="#id"调取了底部元素的id跳转回底部</dd>
+        <dd><dl>若一个其他网站https://xxxx.xxx/确实有index.html且底部确实有id为bottom的元素则可以跳转其他网站的底部
+                <dt><a href="https://mi.com/index.html#bottm">跳转小米底部</a></dt>
+                <dd>小米网站没有叫bottom的id,此处只是做演示</dd>
+            </dl>
+        </dd>
+    </dl>
+    <br><br><br><br>
+
+    <form action="">form表单从此开始<br>
+        <input type="text">input输入,属性type(功能类型)为text决定它的功能是文本框<br>
+        <input type="number">属性type为number<br>
+        <input type="range" max="10" min="0" step="0.1">range范围条此时我设置最大max=10最小min=1,每一步step=0.1最终有100步可以滑动100个幅度即限制了输入粒度<br>
+        <input type="email">属性type为email<br>
+        <input type="color">color颜色框<br>
+        <input type="file">file文件选择对话框<br>
+        <input type="radio">radio勾选框,如三个单纯的勾选框：<br>
+        <input type="radio"><br>
+        <input type="radio"><br>
+        <input type="radio"><br>
+        可通过name属性相同实现选择互斥,再赋予value属性不同值来方便统计,如:<br>
+        <input type="radio" name="gender" value="male">男<br>
+        <input type="radio" name="gender" value="female">女<br>
+        <input type="radio" name="gender" value="secret">保密<br>
+        相比下checkbox勾选框就没有什么name属性的限制:<br>
+        <input type="checkbox" name="xxx"><br>
+        <input type="checkbox" name="ooo"><br>
+        <input type="checkbox" name="iii"><br>
+        checkbox在后面js相关知识更好理解此时仅熟悉效果<br>
+        有时我们希望文字"男"与勾选框是一个整体/标签,即一个框内,点击文字也可勾选。这是我们可以使用label标签来将文字标签化:<br>
+        <label>
+            <input type="radio" name="gender" value="male">男<br>
+        </label>
+        <label>
+            <input type="radio" name="gender" value="female">女<br>
+        </label>
+        <label>
+            <input type="radio" name="gender" value="secret">保密<br>
+        </label>                                 <br>
+        或者:<br>
+        <input type="radio" name="gender" value="male" id="某id"><label for="某id">男</label>           <br>
+        <input type="radio" name="gender" value="male" id="另一个id"><label for="另一个id">女</label>           <br>
+        <input type="radio" name="gender" value="male" id="又一个id"><label for="又一个id">保密</label>           <br>
+
+
+
+
+        <button>提交</button>提交按钮效果与在输入框内按回车提交效果一致<br>
+        <input type="reset">type为reset功能时为重置按钮,将整个表单重置为初始状态。value="xxx"即按钮上显示的值是xxx:<input type="reset" value="xxx"><br>
+        <input type="submit">type为submit即为提交按钮<br>
+        <input type="button">type为button即纯按钮,默认无值显示。纯按钮结合js与css能实现更多效果<br>
+        或者可以用button标签实现按钮功能:<br>
+        <button type="submit">此处是按钮上显示的值,button的默认功能type是submit</button>
+        <button type="reset">重置</button>
+        <button type="button">纯按钮,扣十次获取小布丁</button>          <br>
+        fieldset标签,field即字段,set即集合,每个小按钮/文本框都是一个字段,用fieldset标签将表单内的字段们用可见框进行集合/规划分成很多段,字段集合内的说明文字标签很奇怪地取名为了legend。    <br>
+        如以下是一段示例
+        <fieldset>
+            <legend>个人信息</legend>       <br>
+            <input type="text">     <br>
+            <input type="number">    <br>
+            ......
+        </fieldset>
+        fieldset主要目的是统一管理,如一般加个disable属性可以直接禁用一整个字段集合:
+        <fieldset disabled>
+            <legend>另一个人信息</legend>
+            <input type="text">     <br>
+            <input type="number">       <br>
+            ......
+        </fieldset>         <br>
+
+                            <br>
+        以上只介绍了单行文本框text,回车会直接提交,若要换行接着输入,就要用到多行文本框textarea文本区域:<br>
+        <textarea>这里是设置好已预输入的文本</textarea>
+        textarea可右下角手动调节大小,也可设置属性：<br>
+        <textarea cols="80" rows="5">cols表示列数,视觉上表现为框长,rows表示行数,视觉上表现为框宽。这种方法指定尺寸不如css精确,一般不用</textarea>       <br>
+        下拉选择框标签select,示例:      <br>
+        <select name="" id="">
+            <option value="">选项1</option>
+            <option value="">选项2</option>
+            <option value="">选项3</option>
+            <option value="">......</option>
+        </select>
+        可用属性optgroup设置选项组,optgroup:optiong group,例如:         <br>
+        <select>
+            <optgroup label="此处的label是属性,代表表示的内容,此时先假装是“四川”">
+                <option value="">成都</option>
+                <option value="">重庆</option>
+                <option value="">......</option>
+            </optgroup>
+            <optgroup label="江西">
+                <option value="">赣州</option>
+                <option value="">南昌</option>
+                <option value="">......</option>
+            </optgroup>
+        </select>
+        <br>
+        进度条标签progress:         <br>
+        <progress></progress>           <br>
+        value属性的默认满值是1即满进度条,此时你可以赋予一个0-1的任意值表示进度,或者设置值域来精细化粒度:        <br>
+        <progress value="0.1"></progress>           <br>
+        <progress value="77" min="0" max="100"></progress>      <br>
+
+
+        
+                        <br>
+        以上标签在form表单内,服务于表单
+    </form>form到此才结束                       <br><br><br><br>
+    
+
+
+    <h3> 表单的提交</h3>                <br>
+        表单的提交可看作是携带表单信息时页面的跳转,如搜索引擎,就是携带你在表单内文本框的输入信息跳转了搜索结果显示的那个页面        <br>
+        此时表单内标签的信息携带就要用到标签的name属性,因为比如你在有属性name="xxx"的文本框输入信息后,跳转时携带信息的格式是:xxx=你输入的信息。如:          <br>
+        <form target="_blank" action="https://baidu.com">
+
+        </form>                                                         <br>
+        
+        
+
+
+
+
+
+
+                                            <br><br><br><br>
+    <p>题外话:编译器内可设置多光标同时输入,在设置中multi cursor modifier(多光标修饰键)中设置按键</p>
+    <div id="bottom"></div>
+</body>
+</html>
