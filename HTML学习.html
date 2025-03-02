@@ -72,7 +72,10 @@
         <input type="range" max="10" min="0" step="0.1">range范围条此时我设置最大max=10最小min=1,每一步step=0.1最终有100步可以滑动100个幅度即限制了输入粒度<br>
         <input type="email">属性type为email<br>
         <input type="color">color颜色框<br>
-        <input type="file">file文件选择对话框<br>
+        <input type="file">file文件选择对话框,添加属性accept="img/*,txt/*,video/*..."表示可接收的文件类型<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;斜杠加星号/*表示所有,img/*表示所有的图片,像这样的type/subtype(主类型/次要类型,如图片/图片具体格式,好处是写/*就能省的指定很多具体格式)格式叫做MIME Type现在翻译为媒体类型,即multipurpose internet mail extensiion多用途互联网邮件扩展,所以可以有img/png这种写法。实际上只要知道可以扩展名:accept=".css,.js,.bashrc..."就可以了    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;想要复选文件加上属性multiple就可以了,multiple:复数,复选           <br>
+        <input type="password">输入密码<br>
         <input type="radio">radio勾选框,如三个单纯的勾选框：<br>
         <input type="radio"><br>
         <input type="radio"><br>
@@ -81,7 +84,7 @@
         <input type="radio" name="gender" value="male">男<br>
         <input type="radio" name="gender" value="female">女<br>
         <input type="radio" name="gender" value="secret">保密<br>
-        相比下checkbox勾选框就没有什么name属性的限制:<br>
+        相比下checkbox复选框就没有什么name属性的限制:<br>
         <input type="checkbox" name="xxx"><br>
         <input type="checkbox" name="ooo"><br>
         <input type="checkbox" name="iii"><br>
@@ -130,7 +133,7 @@
 
                             <br>
         以上只介绍了单行文本框text,回车会直接提交,若要换行接着输入,就要用到多行文本框textarea文本区域:<br>
-        <textarea>这里是设置好已预输入的文本</textarea>
+        <textarea>这里是默认内容</textarea>
         textarea可右下角手动调节大小,也可设置属性：<br>
         <textarea cols="80" rows="5">cols表示列数,视觉上表现为框长,rows表示行数,视觉上表现为框宽。这种方法指定尺寸不如css精确,一般不用</textarea>       <br>
         下拉选择框标签select,示例:      <br>
@@ -140,9 +143,10 @@
             <option value="">选项3</option>
             <option value="">......</option>
         </select>
-        可用属性optgroup设置选项组,optgroup:optiong group,例如:         <br>
+        <br>
+        可用属性optgroup设置选项组,optgroup:option group,例如:         <br>
         <select>
-            <optgroup label="此处的label是属性,代表表示的内容,此时先假装是“四川”">
+            <optgroup label="此处的label是属性,代表表示归属的内容,此时先假装是“四川”">
                 <option value="">成都</option>
                 <option value="">重庆</option>
                 <option value="">......</option>
@@ -152,7 +156,8 @@
                 <option value="">南昌</option>
                 <option value="">......</option>
             </optgroup>
-        </select>
+        </select>                       <br>
+        下拉框的样式在各浏览器不尽相同，主要取决于系统,因此很难被css控制,所以一些要求高的网站会用其他元素模拟下拉框                                   <br>
         <br>
         进度条标签progress:         <br>
         <progress></progress>           <br>
@@ -168,13 +173,44 @@
     
 
 
-    <h3> 表单的提交</h3>                <br>
+    <h1> 表单的提交</h1>
+    <h2>action与信息name=value间用?连接,信息间用&连接组成链接/路径来跳转</h2>                <br>
         表单的提交可看作是携带表单信息时页面的跳转,如搜索引擎,就是携带你在表单内文本框的输入信息跳转了搜索结果显示的那个页面        <br>
-        此时表单内标签的信息携带就要用到标签的name属性,因为比如你在有属性name="xxx"的文本框输入信息后,跳转时携带信息的格式是:xxx=你输入的信息。如:          <br>
-        <form target="_blank" action="https://baidu.com">
-
-        </form>                                                         <br>
+        此时表单内标签的信息携带就要用到标签的name属性,因为比如你在有属性name="xxx"的文本框输入信息后,跳转时携带信息的格式是:xxx=你输入的信息/value。如:          <br>
+        <form target="_blank" action="https:12345.com">表单这里开始                 <br>
+            <input type="text" name="xxx">此时假设我们在此文本框内输入了“ooo”           <br>
+            <input type="radio" name="zzz">此时假设我们勾选上       <br>
+            <select name="city">
+                <option value="01">上海</option>
+                <option value="02">杭州</option>
+                <option value="03">北京</option>
+                <option value="...">......</option>
+            </select>此时假设我们选择杭州                   <br>
+            <input type="submit">此时提交则跳转“https:12345.com?xxx=ooo&zzz=on&city=02”             <br>
+        </form> 表单这里结束                                                        <br>
+        所以我们可以很容易推断出百度搜索界面的搜索按钮其实是提交按钮:
+        <form target="_blank" action="https:baidu.com">
+            <button type="submit">搜索</button>
+        </form>
+        有时携带的字段信息可以不显示在页面上,通过功能(type)为隐藏(hidden)实现,例如：                        <br>
+        <input type="hidden" name="xxx" value="ooo">此字段归属的表单提交时会携带xxx=ooo信息                <br>
         
+        <form target="_blank" action="https://xxx.com">
+            表单字段加入属性required成为必填项           <br>
+            <input type="text" required>此处必填
+            <button>提交</button>           <br>
+            加入placeorder占位符实现提示:        <br>
+            <input type="text" placeholder="这是提示">      <br>
+            加入属性autofocus实现自动聚焦(如进入百度页面输入框自动聚焦,光标自动在输入框闪烁):           <br>
+            <input type="text" autofocus>                   <br>
+            按钮最好使用button标签而不是input,好处是容易识别且方便嵌套实现更多效果甚至嵌进图片,而input的value值只能显示纯文本:                                   <br>
+            <input type="submit" value="<b>加粗失败</b>">                                   <br>
+            <button><b>加粗成功</b></button>                                   <br>
+        
+        </form>
+        <br><br><br><br><br><br><br>
+        有时我们会想直接显示字符而不被识别为代码/标签,这时用转义符替代:                 <br>
+        hrml实体 html entity(转义符)
         
 
 
