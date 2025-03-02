@@ -209,9 +209,23 @@
         
         </form>
         <br><br><br><br><br><br><br>
-        有时我们会想直接显示字符而不被识别为代码/标签,这时用转义符替代:                 <br>
-        hrml实体 html entity(转义符)
-        
+        有时我们会想直接显示字符而不被识别为代码/标签的一部分,这时用转义符替代,html的转义符叫做html实体:                 <br>
+        hrml实体 html entity(转义符),最需要记忆的有：       <br>
+        &nbsp;/&#160;     空格non-breaking space 160号空格                                   <br>
+        &amp;       &符,ampersand                                   <br>
+        &copy;      版权符                                   <br>
+        &lt;        小于符,lettle then                                   <br>
+        &gl;        大于符,greater then                                   <br>
+        &quot;      双引号                                   <br>
+        &apos;      单引号                                   <br>
+        &#xxx       xxx是你要显示的字符的十进制或十六进制                                   <br>
+        有了转义符就也能实现&amp;lt;&amp;amp;lt;这样显示用转义符显示转义符
+        <pre>
+            pre标签 pre formatted:预先格式化
+                 里面怎么写           他就怎么显示
+                 不需要    考虑  空格             问题
+        </pre>
+
 
 
 
@@ -220,6 +234,7 @@
 
                                             <br><br><br><br>
     <p>题外话:编译器内可设置多光标同时输入,在设置中multi cursor modifier(多光标修饰键)中设置按键</p>
+    <p>Render Whitespace选项选择all可将空白符显示模式改为常时显示</p>
     <div id="bottom"></div>
 </body>
 </html>
