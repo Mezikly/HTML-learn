@@ -246,8 +246,8 @@
 
 
 
-        table表格
-        <table border=1>table表格,添加属性border=1使内外边框线显示且外边框线厚度为1,无需在意后期可靠css精确控制
+        <h3>table表格</h3>
+        <table border="1">table表格,添加属性border=1使内外边框线显示且外边框线厚度为1,无需在意后期可靠css精确控制
             <tbody>tbody表格体,表格内容,可有多个tbody方便管理,多数时候只有一个tbody可简化省略掉tbody标签让他自动纠错自动加上tbody(因为tr必须是tbody的子元素)
                 <caption>成绩单</caption>caption即表格标题
                 <thead>thead顶部表头,打印时每一页都会显示在顶部
@@ -256,17 +256,17 @@
                     <th>333</th>
                 </thead>
                 <tr>tr即table row表格的一行
-                    <th>姓名</th>th即table header表头,严格来说th应该是thead或tfoot的子元素,但太死板太不灵活
-                    <th>学号</th>
+                    <th id="name">姓名</th>th即table header cell表头单元格,严格来说th应该是thead或tfoot的子元素,但太死板太不灵活
+                    <th id="number">学号</th>
                     <th>班级</th>
                 </tr>
                 <tr>另一个tr即表格的另一行,行之间是并列的,互为姐妹元素
-                    <td>姓名</td>td即table data表示放表格数据的单元格,tr里的每一个td即每一个单元格
-                    <td>学号</td>
-                    <td>班级</td>
+                    <th>张三</th>td即table data表示放表格数据的单元格,tr里的每一个td即每一个单元格
+                    <td headers="name,number">333</td>header属性赋予他所属的表头的id为值,表示他归属哪些表头,方便读屏软件
+                    <td>333</td>
                 </tr>
                 <tr>
-                    <td>好长好长好长一个名字xxx</td>
+                    <th>好长好长好长一个名字xxx</th>
                     <td>换个行<br>让此单元格宽变高了再显示学号是ooo</td>table表格的单元格间不共享边框线,但会自动对齐长宽
                     <td>iii</td>
                     <tfoot>tfoot底部表头,表格内容足够长时打印可使底部表头在每一页纸的底部出现
@@ -277,6 +277,42 @@
                 </tr>
             </tbody>
         </table>
+        <h5>表格的跨行跨列--span-----rowspan、colspan</h5>                                  <br>
+        span跨域                                  <br>
+        row行                                  <br>
+        col即column纵列                                  <br>
+        在单元格标签加入属性rowspan/colspan=x,即可让此单元格占几行、列,但因为表格是按行算,所以行被挤的单元格不会往下移动,只会右移                                  <br>
+        <table border="1">
+            <tr>
+                <th rowspan="2">我要占两行</th>
+                <th>111</th>
+                <th>111</th>
+            </tr>
+            <tr>
+                <th rowspan="4">我被挤过来了但我还在第二行同时我想要占四行</th>
+                <td>222</td>
+                <td>222</td>
+            </tr>
+            <tr>
+                <th>333</th>
+                <td>333</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <th>444</th>
+                <td colspan="2">我要占两列</td>
+                <td>444</td>
+            </tr>
+            <tbody>
+                <tr>
+                    <th>xxx</th>
+                    <td>占不到我这因为我在另一个tbody里</td>
+                    <td>xxx</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
 
 
 
