@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML学习</title>
+<!DOCTYPE html>doctype:文档类型document type,声明,文件头,描述文件类型
+<html lang="en">html:根标签
+<head>head:页面相关信息,不显示在窗口内
+    <meta charset="UTF-8">meta元信息标签,meta:元，元数据：关于数据的数据,如一本书归类为科幻书,“科幻书”就是元信息,它是关于书内信息的信息,将信息结构化描述,在html中,编译方式就是对代码信息相关的信息。
+    <meta name="keyword" content="html学习">这个元信息的属性是name,即用来展现一些东西,展现的是keyword(关键字),meta将用来表示页面的keword,此时的meta是keyword,它的内容即content(包含之物)是xxxx,关键字是填写给程序看让程序或搜索引擎更好搜索到你的信息
+    <title>HTML学习</title>title会显示在浏览器标签上
 </head>
 
 
 
-<body>
+<body>body,体,页面要显示的内容都在体内
     <h1 id="top">h1一级标题最好只有一个(此时我给h1一级标题起了id为“top”后面我可以通过页面内跳转时调用id回来)</h1>
     <h2>h2二级标题</h2>
     <h3>h3三级标题</h3>
@@ -53,7 +53,21 @@
     <p>id属性即标签的唯一id,给标签起的名字/身份证号,每个标签id必须唯一。方便调用</p>
     <p>属性lang即language,表示人类语言如根标签<html lang="en">中表示整个页面的人类语言是en</p>
     <p>style属性表示标签的样式</p>
-    <dl>a标签的页面内跳转(跳转的标签id会显示在地址栏尾部)
+    <h1>a链接标签</h1>
+    <a href="xxxxx" target="_blank"></a>:链接,href:hyper reference:参考，查阅，引用，指向"链接",target默认是_self即点击在当前窗口/框架打开链接,
+            _blank在新的空白窗口打开,除了能指向链接,也能指向电话:href=”tel:xxxxxxxxxxx”,指向邮箱:href=”mailto:xxxxxxx@xxx.com”点击跳转向邮件地址发送邮件
+            的界面,还能填写相对路径,若此时运行是在http://xxx/ooo/即浏览器网址栏显示这个,此时填写的链接指向b.html,也就是href=”b.html”那么跳转
+            的是http://xxx/ooo/文件夹的b.html,即http://xxx/ooo/b.html(复习:单个.表示当前目录，两个.即..为当前的上一级目录)，所以相对路径都
+            是相对于文件夹的，一般都是相对于当前"工作/运行目录"即你写代码的文件所在的文件夹，且不管此目录归属的上级(即移动此文件夹的位置/归属无
+            所谓)。href甚至可以指向QQ/WX/taobao临时会话,href=”tencent://temp-chat?QQ=xxxxxxx……”。                                                                    <br>
+    <h3>!!!特例:空白的href属性即href=””或单个点即href=”.”是链接到当前页面，空的代表当前文件，单点.代表当前文件所在的文件夹
+    所以仅#开头的值是中转到当前页面的特定元素位置，#即调用元素id为目标,如假设顶部有个标签我命名id为xxx我可以<a href=”#xxx”>回到顶部</a>。</h3>
+    <h3>HTML5中a标签的download属性触发下载</h3>
+    <a href="xxx.html" download="ooo">链接点击触发下载ooo文件,即xxx.html链接指向的目标(download在点击触发时给了个对话框输入文件名下载对应文件,
+        ooo会自动填进去)限制:只能下载自己网站上的资源,只能在真正的网址上使用,即url以http开头
+
+    <h3>a标签的页面内跳转(跳转的标签id会显示在地址栏尾部)</h3>
+    <dl>
         <dt><a href="#top">回到顶部</a></dt>
         <dd>通过href="#id"调取了顶部元素的id跳转回顶部</dd>
         <dt><a href="#bottom">回到底部</a></dt>
@@ -64,8 +78,16 @@
             </dl>
         </dd>
     </dl>
+    <h1>图片img标签</h1>
+    <img src="xxxx" alt="oooo" width="100" height="200">img是图片,xxxx是图片的地址,可以是链接,可以是相对地址alt即alternate:另外的;替代物;替代品，键
+            盘上的alt也是这个意思,即补充另外说明文字,图片加载不成功时可以看到文字oooo。width即高,height即宽,高100宽200(单位像素点),不设置尺寸即默认大小
+
     <br><br><br><br>
 
+
+
+
+    <h1>表单及input文本框标签</h1>
     <form action="">form表单从此开始<br>
         <input type="text">input输入,属性type(功能类型)为text决定它的功能是文本框<br>
         <input type="number">属性type为number<br>
@@ -247,7 +269,7 @@
 
 
         <h3>table表格</h3>
-        <table border="1">table表格,添加属性border=1使内外边框线显示且外边框线厚度为1,无需在意后期可靠css精确控制
+        <table border="1" cellspacing="5" bordercolor="yellow">table表格,添加属性border=1使内外边框线显示且外边框线厚度为1,cellspacing属性设置表格单元格之间的间隙,bordercolor设置边框线颜色。无需在意,后期可靠css精确控制
             <tbody>tbody表格体,表格内容,可有多个tbody方便管理,多数时候只有一个tbody可简化省略掉tbody标签让他自动纠错自动加上tbody(因为tr必须是tbody的子元素)
                 <caption>成绩单</caption>caption即表格标题
                 <thead>thead顶部表头,打印时每一页都会显示在顶部
@@ -277,7 +299,7 @@
                 </tr>
             </tbody>
         </table>
-        <h5>表格的跨行跨列--span-----rowspan、colspan</h5>                                  <br>
+        <h4>表格的跨行跨列--span-----rowspan、colspan</h4>                                  <br>
         span跨域                                  <br>
         row行                                  <br>
         col即column纵列                                  <br>
@@ -311,18 +333,111 @@
                 </tr>
             </tbody>
         </table>
+        <h4>表格的抽象列</h4>
+        表格按行算,但需要按列处理时可以抽象出一个列标签col                                  <br>
+        <table border="1">
+            <col bgcolor="red">四个col标签按顺序分别代表四列的处理,第一列属性bgcolor背景颜色为红
+            <col bgcolor="tan" span="2" width="200">添加属性span让第二列跨域两列即让他代表了两列所以2,3列都被他一并设置了属性width宽度为200像素点
+            <colgroup span="2" bgcolor="red">我还能用colgroup列集合标签将列集中管理,span表示选中了几列,里面再有col元素即可再按顺序单独处理某一列
+            <col bgcolor="green">colgroup标签应代表子元素里的这一列,但对代码结构的子元素col的处理却反直觉地成为了独立在colgroup后的一列的处理,逻辑混乱不便记忆,实际尽量避免使用colgroup标签
+            <col>
+            <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>111</td>
+                    <td>111</td>
+                    <td bgcolor="blue">111</td>我也可以单独设置单元格的bgcolor为蓝,同时证明了子元素属性优先于父元素
+                    <td>111</td>
+                    <td>111</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>222</td>
+                    <td>222</td>
+                    <td>222</td>
+                    <td>222</td>
+                    <td>222</td>
+                    <td>222</td>
+                </tr>
+                <tr>
+                    <td>333</td>
+                    <td>333</td>
+                    <td>333</td>
+                    <td>333</td>
+                    <td>333</td>
+                    <td>333</td>
+                </tr>
+                <tr>
+                    <td>444</td>
+                    <td>444</td>
+                    <td>444</td>
+                    <td>444</td>
+                    <td>444</td>
+                    <td>444</td>
+                </tr>
+                <tr>
+                    <td>555</td>
+                    <td>555</td>
+                    <td>555</td>
+                    <td>555</td>
+                    <td>555</td>
+                    <td>555</td>
+                </tr>
+            </tbody>
+        </table>
+                                                        <br><br><br><br>
+    <h4>一些不常用或功能不完善后期靠CSS可实现更好效果的标签or属性</h4>
+    marquee标签字幕在屏幕滚动,behavior行为,direction方向                               <br>
+    <marquee behavior="" direction="up">卧槽牛比666</marquee>
+    iframe标签嵌套其他页面,iframe:inline frame内连框架、边界。src即source,指向内容嵌入当前标签位置,frameborder设置边框线厚度                               <br>
+    <iframe src="http://www.mi.com" frameborder="5" name="xxx"></iframe>
+    可以给一个name标签让其成为链接标签a的target,使链接的href指向目标在target目标框架/窗口为框架xxx,从而在xxx内打开
+    <a href="https://www.baidu.com" target="xxx">点我在框架xxx内打开href指向链接百度</a>
+    a标签的target属性可指向_parent,即在窗口套窗口的情况下,如上文的iframe框架内的页面源代码里有一个a标签里的target="_parent",点击a链接会在链接标签所在的窗口的父窗口,即iframe所属窗口,也就是此页代码显示的窗口打开a标签的链接。
+    同理有target="_top"会在最顶层的窗口打开链接,如此页面有iframe,iframe1内还有一个iframe2,iframe2里还有一个iframe3......那不管哪个iframe内页面的标签a有target="_top",都会在此页面打开链接
+    乱起目标框架名如target="xxxxxx"会在新窗口打开并将新窗口命名为xxxxxx,后续target="xxxxxx"的链接也会以这个命名xxxxxx的窗口打开,如下点击链接1,会将打开的新窗口命名为xxxxxx,再点击链接2会在刚才打开的xxxxxx窗口打开          <br>
+    <a href="https://www.moe48.com/" target="xxxxxx">链接1</a>                  <br>
+    <a href="https://www.baidu.com" target="xxxxxx">链接2</a>                 <br>
+    角标sub,sup标签                 <br>
+    1<sub>2</sub>3<sup>4</sup>                 <br>
+    code代码,相比pre标签,pre标签只是保留格式,而code标签专门使用等宽字体,更适合表示代码
+    <code>
+        some code
+    </code>                 <br>
+    <h4>html面试题</h4>
+    语义化？                 <br>
+        用正确的合适的标签、合适的嵌套方式来表示相应的内容                 <br>
+    访问性？                 <br>
+        页面对不同人群不同设备的可用性/易用性(如一个应用可用键盘/鼠标或不同计算机等等设备操作)                 <br>
+        role与aria-*属性
+        role在标签花样嵌套实现多样效果时标识出标签的角色/功能(告诉计算机),计算机并不知道一堆堆叠嵌套的标签呈现的是什么可交互元素(按钮button等点击有相应反馈的元素),这可能会影响盲人的使用,标识后读屏软件才能读出来                 <br>
+        aria:accessable rich internet app可访问的富互联网应用,aria-open="true"表示这个标签扮演的role的交互状态为true可交互
+        <div role="button" aria-open="true">
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        
 
 
-
-
-
-
-
-
-
+    视频                 <br>
+    <video src="xxxx.mp4" controls></video>                                           <br>
+    音频                 <br>
+    <audio src="xxxx.mp4" controls></video>                                           <br>
                                             <br><br><br><br>
+
+
+
+
+
+
     <p>题外话:编译器内可设置多光标同时输入,在设置中multi cursor modifier(多光标修饰键)中设置按键</p>
     <p>Render Whitespace选项选择all可将空白符显示模式改为常时显示</p>
     <div id="bottom"></div>
